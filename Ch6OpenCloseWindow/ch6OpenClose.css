@@ -1,0 +1,30 @@
+@charset = "utf-8";
+* 
+{
+	margin: 0;
+}
+h1
+{
+	color:#DDF;
+	font-size : 3em;
+	text-align: center;
+}
+#division
+{
+	border: 1px solid #C33;
+	padding :1px;
+	float :left;
+	margin-left: 1em;
+}
+#open
+{
+	color: #C33;
+	background-color: pink;
+
+}
+#close
+{
+	color: #C33;
+	background-color: pink;
+
+}
