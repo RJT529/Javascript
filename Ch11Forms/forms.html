@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>FORM</title>
+		<meta http-equiv="refresh" content="19">
+		<meta charset = "utf-8">
+		<script type="text/javascript" src = "forms.js"></script>
+		<link rel="stylesheet" type="text/css" href="forms.css" media="all">
+	</head>
+	
+	<body>
+		<h1><b>This is a html form</b></h1>
+
+		<br>
+
+		
+		<form id = "form1" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"	method = "post" >
+
+			<fieldset id = "fform" >		<!--filedset groups realted data in a form -->
+
+				<legend id = "lform" style="color:blue"><b>Personal Information:</b></legend>		<!--defines a caption for the <filedset element -->
+
+				<!-- TEXT Input -->
+				<label for = "fname"> NAME: </label><br>
+				<input type = "text" name = "fname" id = "fname"><br><br>
+
+				<!-- Drop Down list -->
+				<label for = "age"> AGE: </label>
+				<select name = "age" id = "age">
+					<option value = "less18"> Less than 18</option>
+					<option value = "equal18"> Equal to 18 </option>
+					<option value = "greater18">Greater than 18</option>					
+				</select>
+				<br><br>
+				
+				<!-- RADIO button -->
+				<label for = "male">Male</label>		
+					<input type = "radio" name = "gender" value = "Male" checked id = "male">  <br>
+				<label for = "female"> Female</label>			
+					<input type = "radio" name = "gender" value = "Female" id = "female"><br>
+						<!-- Defines label for the <input> element-->
+						<!-- helps the mouse users, makes the text toggleable -->
+				<br>
+<!--
+				// TEXT AREA 
+				<label for = "address"> ADDRESS: </label><br>
+				<textarea name = "message" id = "address" rows = "5" cols = "30" value = "">
+				</textarea>
+				<br>
+				<br>
+-->
+				<label for = "address"> ADDRESS: </label><br>
+				<input type = "text" name = "message" id = "address"  value = "">
+				</textarea>
+				<br>
+				<br>
+
+				<!--CHECKBOX-->
+					<!-- The browser sends name and value pair to the server-->
+				<input type="checkbox" name="vehicle1" value="Bike" id = "Bike"> I have a bike<br>
+ 				<input type="checkbox" name="vehicle2" value="Car" id = "Car"> I have a car <br><br>
+
+				<!-- Use of <optgroup> -->
+				<label for = "carslist"> Which car you own? </label>
+				 <select id = "carslist">
+					<optgroup label="Swedish Cars">
+    					<option value="volvo">Volvo</option>
+    					<option value="saab">Saab</option>
+  					</optgroup>
+					<optgroup label="German Cars">
+    					<option value="mercedes">Mercedes</option>
+    					<option value="audi">Audi</option>
+					</optgroup>
+				</select> 
+				<br>
+				<br>
+
+				<!-- BUTTON -->
+				<button type = "button" onclick = "alert('You Clicked Me!! ;)')" >Click Me!</button>
+
+				
+				<!-- Submit button -->
+				<input type = "submit" name = "submit" value = "SUBMIT" >
+
+			</fieldset>
+
+
+
+		</form>
+
+		<p id = "hiddenpara">0</p>
+
+	</body>
+
+</html>

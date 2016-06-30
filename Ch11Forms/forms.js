@@ -1,0 +1,152 @@
+addEvent(window,'load',initialize);
+
+function addEvent(elem, evtType,func)
+{
+	if(elem.addEventListener){
+		elem.addEventListener(evtType,func,false);
+	} else {
+		elem["on"+ evtType] = func;
+	}
+}
+//window.onload = initialize;
+
+function initialize()
+{
+	
+	if(!document.getElementById) return false;
+
+	var fname = document.getElementById("fname");
+
+	if(fname) {
+		addEvent(fname,'change',namevalidation);
+	}
+
+	var oform = document.getElementById("form1");
+	if(!oform) return false;
+
+	
+	addEvent(oform, "submit" , checkform);
+
+	
+}
+
+function namevalidation()
+{
+	
+	var name = this.value;
+	name = name.toUpperCase();
+	this.value= name;
+
+}
+
+function checkform(evt) 
+{
+	if(!evt) evt = window.event;
+	
+
+	var flag = 0;
+
+	//to check whether the name is correctly filled
+	for(i = 0; i < this.elements.length; i++) {
+		if(this.elements[i].type == "text" && this.elements[i].value =="" && this.elements[i].name == "fname") {
+			alert("Fill in the Name!!");
+			flag = 1;
+		}
+
+	}
+
+	// to get the option selected in the selection list
+		//the selection object also has 'onchange' event associated with it
+	var ageList = document.getElementById("age");
+	if(ageList) {
+		var age = ageList.options[ageList.selectedIndex].text;
+	}
+
+	//to check which radio button is selected
+	var genderList = this.gender;  //formObject.gropuname: is an array of elements with common group name
+	var gender;
+	for(i = 0 ; i < genderList.length; i++) {
+		if(genderList[i].checked) {
+			gender = genderList[i].value;
+		}	
+	}
+
+	//to see which all option are CHECKED in checkboxes
+	var b = document.getElementById('Bike');
+	var c = document.getElementById('Car');
+	var checkSelect;
+	if(b.checked && c.checked)
+		checkSelect=("bike and car");
+	else if (b.checked)
+		checkSelect=("bike");
+	else if (c.checked)
+		checkSelect=("car");
+	else 
+		checkSelect=("neither car nor bike");
+
+	// to get the option selected in the selection list
+	var carList = document.getElementById("carslist");
+	if(carList) {
+		var car = carList.options[carList.selectedIndex].text;
+	}
+
+	var address = document.getElementById('address').value;
+	//document.write(address);
+	address = address.toString();
+	if(address == "") {
+		alert("Please, fill in the address!");
+		flag = 1;
+	}
+
+	// to allow cancellation
+	if(flag == 1) {
+		if(evt.preventDefault) evt.preventDefault();
+		return false;
+	}
+
+	var rewrite = "<!DOCTYPE html>";
+	rewrite += '<html>';
+	rewrite += '<head>';
+	rewrite += '<meta charset = "utf-8">';
+	rewrite += '<script type = "text/javascript" src = "subwindow.js"></script>';
+	//<script type="text/javascript" src = "frameText.js"></script>
+	rewrite += '</head>';
+	rewrite += '<body>';
+	rewrite += '<h1> The Credentials Submitted Are</h1>';
+	rewrite += 'Name: ' + document.getElementById('fname').value + '<br>';
+	rewrite += 'Age: ' + age + '<br>';
+	rewrite += 'Gender: ' + gender + '<br>';
+	rewrite += 'Address: ' + address + '<br>';
+	rewrite += 'You Own ' + checkSelect + '<br>';
+	rewrite += 'Your Car Model is ' + car + '<br><br>';
+	rewrite += '<input type = "button" value = "Procede" id = "Procede">';
+	rewrite += '</body>';
+	rewrite += '</html>';
+
+	//to Open in new window
+	if(!parseInt(document.getElementById('hiddenpara').innerHTML)) {
+		newwin = window.open("", '',"height = 400, width = 400");
+		newwin.document.write(rewrite);
+		newwin.document.close();
+		newwin.focus();
+	}
+	
+
+	//to Write in the same document
+	/*
+		document.write(rewrite());
+		document.close();
+	*/
+	
+	
+	if(parseInt(document.getElementById('hiddenpara').innerHTML) == 1) {
+		return true;    //to allow submission
+	} else {
+		if(evt.preventDefault) evt.preventDefault();
+		return false;
+	}
+	
+
+	
+
+}
