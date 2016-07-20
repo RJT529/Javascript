@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Maximise full screen</title>
+</head>
+<body>
+	<input type="button" value="Maximise" onclick = "window.maximize()">
+	<script type="text/javascript">
+		function fullscreen() {
+			
+			this.moveTo(0,0);
+			this.resizeTo(screen.availWidth, screen.availHeight);
+		}
+		window.maximize = fullscreen;
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>offsetParent Prop</title>
+	<meta http-equiv="refresh" content="2">
+	<script type="text/javascript" src = "offsetParent.js"></script>
+	<style type="text/css">
+	#myImage {
+		position: absolute;
+		height: 12px;
+		width: 12px;
+		border: 5px solid red;
+	}
+	</style>
+</head>
+<body onload = "setImagePosition()">
+	<h1>offsetParent property</h1>
+	<hr>
+	<p>After the document loads, the script positions a small image in the upper left 
+	corner of the second table cell.
+	</p>
+	<br>
+
+	<table border="1" align= "center">
+		<tr>
+			<td>This is the first cell</td>
+			<td id = "myCell">THis is the second cell.</td>
+		</tr>
+	</table>
+
+	<img id = "myImage" alt ="image" src="offsetParent.jpg" height="12" width = "12" style = "visibility: hidden;">
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>contentEditable Property</title>
+	<meta http-equiv="refresh" content="200">
+	<style type="text/css">
+	.normal {
+		color:black;
+	}
+	.editing {
+		color:red;
+	}
+	#outerDiv {
+		border:5px solid red;
+		width : 200px;
+		margin: auto;
+		text-align: center;
+		border-radius: 10px;
+		padding: 10px;
+	}
+	
+	</style>
+	<script type="text/javascript" src = "contentEditable.js"></script>
+</head>
+<body>
+
+	<h1>PoetryEditor</h1>
+	<hr>
+	<p> Turn on editing to modify the following text:</p>
+	<div id = "outerDiv">
+	<div id = "noneditableText">
+		
+			The Roses are red,<br>
+			The Sky is blue,<br>
+				and <br>
+			The Grass is Greeen!!<br>
+	</div>
+	<div id = "editableText">
+		Line3,
+		<br>
+		Line4,
+	</div>
+	</div>
+
+	<p>
+		<button id = "editButton" onclick="toggleEdit()" onfocus="this.blur()">Enable Editing</button>
+
+	</p>
+
+		
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dispatchEvent()</title>
+	<meta http-equiv="refresh" content="200">
+	<script type="text/javascript" src = "dispatchEvent().js"></script>
+	<style type="text/css">
+		#mySPAN {
+			font-style : italic;
+		}
+		#ctrlPanel {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body id = "myBODY" onload = "init()">
+	<h1>dispatchEvent() Method</h1>
+	<hr>
+	<p id = "myP"> this is a pragraph <span id = "mySPAN">(with a nested SPAN)</span> that recieves click events.		
+	</p>
+	<hr>
+	<p>
+		<span id = "ctrlPanel"> CONTROL PANEL </span>
+	</p>
+
+	<form name = "controls">
+		<p>
+			<input type = "checkbox" name = "bubbleOn" onclick = "event.stopPropagation()">Cancel event bubbling.
+		</p>
+		<p>
+			<input type = "button" value = "Fire Click event on BODY" onclick = "doDispatch('myBODY',event)">
+		</p>
+		<p>
+			<input type = "button" value="Fire Click Event on myP" onclick = "doDispatch('myP',event)">
+		</p>
+		<p>
+			<input type = "button" value="Fire CLick event on mySPAN" onclick = "doDispatch('mySPAN',event)">
+		</p>
+	</form>
+</body>
+</html>

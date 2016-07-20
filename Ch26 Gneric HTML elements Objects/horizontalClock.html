@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Horizontal Clock</title>
+	
+	<meta charset = "utf-8">
+	
+	<script type="text/javascript" src = "horizontalClock.js"></script>
+	<style type="text/css">
+		h1 {
+			text-align: center;
+			color:red;
+		}
+		th {
+			text-align: right;
+		}
+		span {
+			vertical-align: bottom;
+		}
+		<td> {
+			text-align: center;
+		}
+	</style>
+</head>
+<body onload=" init()">
+	
+	<h1>HORIZONTAL CLOCK</h1>
+	<hr>
+	<div style = "border: 1px solid black; background-color:#DFF; border-radius: 5px; padding:10px; width:400px; margin:auto ">
+	<table border="0">
+	<tr>
+		<th>&nbsp;  Hours :</th>
+		<td id = "hoursBlock" style = "background-color: red ; border: 1px solid black;">
+			<span id = "hoursLabel"> </span>
+		</td>
+	</tr>
+	</table>
+	<table>
+	<tr>
+		<th>Minutes:</th>
+		<td id = "minutesBlock" style = " border: 1px solid black; background-color:yellow">
+			
+			 <span id = "minutesLabel" > </span>
+		</td>
+	</tr>
+	</table>
+	<table>
+	<tr>
+		<th>Seconds:</th>
+		<td id = "secondsBlock" style = "background-color:green ; border: 1px solid black; color: white;">
+			<span ></span>
+			<span id = "secondsLabel"></span>
+		</td>
+	</tr>
+	</table>
+	</div>
+	<hr>
+
+
+</body>
+</html>
