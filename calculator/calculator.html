@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="1000">
+<style>
+.b
+{
+	width:32px;
+	background-color: rgb(0,100,100);
+	color:white;
+}
+.b:hover {
+	background-color:white;
+	color:rgb(0,100,100);
+}
+#display {
+	resize:none;
+	background-color: #DFF;
+	color:black;
+	font-size: 15px;
+	width: 136px;
+	text-align:right;
+}
+</style>
+</head>
+<body>
+
+
+<div style="border:1px solid black;width:143px;padding:2px; background-color: grey">
+<div style=" height:41px; width:142px">
+		<textarea id="display" rows="1" cols="16" >0</textarea>
+	</div>
+<button value='7' onclick="f(this.value)" class="b">7</button>
+<button value='8' onclick="f(this.value)" class="b">8</button>
+<button value='9' onclick="f(this.value)" class="b">9</button>
+<button value='/' onclick="f(this.value)" class="b">/</button>
+<br>
+<button value='4' onclick="f(this.value)" class="b">4</button>
+<button value='5' onclick="f(this.value)" class="b">5</button>
+<button value='6' onclick="f(this.value)" class="b">6</button>
+<button value='*' onclick="f(this.value)" class="b">*</button>
+<br>
+<button value='1' onclick="f(this.value)" class="b">1</button>
+<button value='2' onclick="f(this.value)" class="b">2</button>
+<button value='3' onclick="f(this.value)" class="b">3</button>
+<button value='-' onclick="f(this.value)" class="b">-</button>
+<br>
+<button value='x' onclick="f(this.value)" class="b">x</button>
+<button value='0' onclick="f(this.value)" class="b">0</button>
+<button value='=' onclick="f(this.value)" class="b">=</button>
+<button value='+' onclick="f(this.value)" class="b">+</button>
+<br>
+</div>
+
+<script>
+var a="";
+var b="";
+var counter=0;
+function f(value)
+{
+	
+
+	if(value=='+')
+	{
+		b='+';
+	}
+	else if(value=='-')
+	{
+		b='-';
+	}
+	else if(value=='/')
+	{
+		b='/';
+	}
+	else if(value=='*')
+	{
+		b='*';
+	}
+
+	if(value!='=')
+	{
+		a=a+value;
+		document.getElementById("display").value=a;
+	}
+	else 
+	{
+		var x=a.indexOf(b);
+		var c=a.slice(0,x);
+		var d=a.slice(x+1);
+		var m=parseInt(c);
+		var n=parseInt(d);
+
+		switch(b)
+		{
+			case '+':
+				document.getElementById("display").value
+				=(m+n);
+				a=m+n;
+				break;
+			case '-':
+				document.getElementById("display").value
+				=(m-n);
+				a=m-n;
+				break;
+			case '/':
+				document.getElementById("display").value
+				=(m/n);
+				a=m/n;
+				break;
+			case '*':
+				document.getElementById("display").value
+				=(m*n);
+				a=m*n;
+				break;
+
+		}
+		counter++;
+	}
+
+
+}
+</script>
+</body>
+</html>
